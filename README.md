@@ -47,8 +47,3 @@ Reviewing assumptions
 3. You have logged in as root.
 4. You have installed git by doing apt-get install git.
 5. You're starting from a fresh .img of Raspian.
-
-<h2>Known Problems</h2>
-1. Can't log in to shellinabox as root. Don't know why. Looking at http://code.google.com/p/shellinabox/issues/detail?id=113
-2. 3 or 4 python modules that belong with confconsole are in /usr/bin. There's an appropriate place for them, I just couldn't get confconsole to work with them anywhere else but /usr/bin.
-</body></html>
