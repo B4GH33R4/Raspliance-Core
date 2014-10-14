@@ -20,8 +20,9 @@
 <li>Maximize system memory, minimize display RAM with sudo raspi-config
 <li>Patch is downloaded to /tmp; most likely using git clone. If zip package is downloaded, it should be unzipped -- preferably to /tmp.
 </ul>
+<pre>git clone https://github.com/mortezaPRK/Raspliance-Core /tmp/ </pre>
 <h2>To Use</h2>
-<ul><li>Download from net; you'll need to be able to unzip or use git clone.
+<ul><li>
 <li>Run compile_tklpatch.sh in order to compile the tool to apply this patch to Raspian. or Raspbian.
 <li>Use this command to apply the patch (assuming your in the directory with the git clone):</li>
 <pre>tklpatch-apply / ./core/</pre>
