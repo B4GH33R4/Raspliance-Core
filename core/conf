@@ -228,9 +228,9 @@ install adduser \
 	xz-utils \
 	zlib1g \
 	libbind9-80 \
-	libdns81 \
+#	libdns81 \ (removed from R_PI Repo)
 	libgmp3-dev \
-	libisc83 \
+#	libisc83 \ (removed from R_PI Repo)
 	libisccc80 \
 	libisccfg82 \
 	liblwres80 \
@@ -239,60 +239,28 @@ install adduser \
 
 #Install Python-Dialog
 mkdir /tmp/pythondialog
+git clone https://github.com/turnkeylinux/pythondialog /tmp/pythondialog
 cd /tmp/pythondialog/
-wget http://code.turnkeylinux.org/pythondialog/setup.py 
-wget http://code.turnkeylinux.org/pythondialog/dialog.py
-wget http://code.turnkeylinux.org/pythondialog/setup.cfg
 #Setup PythonDialog
 python setup.py install
 
 #Install Pycurl-Wrapper
-mkdir -p /tmp/pycurl-wrapper/pylib
-mkdir -p /tmp/pycurl-wrapper/debian
-cd /tmp/pycurl-wrapper/debian
-wget http://code.turnkeylinux.org/pycurl-wrapper/debian/control
-cd /tmp/pycurl-wrapper
-wget http://code.turnkeylinux.org/pycurl-wrapper/setup.py
-cd pylib/
-wget http://code.turnkeylinux.org/pycurl-wrapper/pylib/pycurl_wrapper.py
+mkdir /tmp/pycurl-wrapper
+git clone https://github.com/turnkeylinux/pycurl-wrapper /tmp/pycurl-wrapper
 cd /tmp/pycurl-wrapper/
 python setup.py install
 
 #Install Turnkey Pylib
 mkdir -p /tmp/turnkey-pylib/
+git clone https://github.com/turnkeylinux/turnkey-pylib /tmp/turnkey-pylib/
 cd /tmp/turnkey-pylib/
-wget http://code.turnkeylinux.org/turnkey-pylib/setup.py
-mkdir -p /tmp/turnkey-pylib/pylib/
-cd pylib
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/command.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/conffile.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/debian_pylib.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/executil.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/fifobuffer.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/fileevent.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/lazyclass.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/multiprocessing_utils.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/netinfo.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/paths.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/pidlock.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/popen4.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/sigignore.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/stdtrap.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/sysversion.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/temp.py
-wget http://code.turnkeylinux.org/turnkey-pylib/pylib/threadloop.py
-cd /tmp/turnkey-pylib
-mkdir debian
-cd debian/
-wget http://code.turnkeylinux.org/turnkey-pylib/debian/control
-cd /tmp/turnkey-pylib
 python setup.py install
 cd ~/
 
 #Inithooks conf
-cd /etc
-wget http://code.turnkeylinux.org/inithooks/debian/init
-mv /etc/init /etc/confconsole.conf
+mkdir -p /tmp/inithooks
+git clone https://github.com/turnkeylinux/inithooks /tmp/inithooks
+mv /tmp/inithooks/debian/init /etc/confconsole.conf
 
 #Update rc.d for services
 update-rc.d webmin defaults
