@@ -228,9 +228,7 @@ install adduser \
 	xz-utils \
 	zlib1g \
 	libbind9-80 \
-#	libdns81 \ (removed from R_PI Repo)
 	libgmp3-dev \
-#	libisc83 \ (removed from R_PI Repo)
 	libisccc80 \
 	libisccfg82 \
 	liblwres80 \
