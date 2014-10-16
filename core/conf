@@ -260,6 +260,9 @@ mkdir -p /tmp/inithooks
 git clone https://github.com/turnkeylinux/inithooks /tmp/inithooks
 mv /tmp/inithooks/debian/init /etc/confconsole.conf
 
+#configuring confconsoloe
+sed -i '1i# UNCONFIGURED INTERFACES' /etc/network/interfaces
+
 #Update rc.d for services
 update-rc.d webmin defaults
 update-rc.d confconsole defaults
