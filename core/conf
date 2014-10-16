@@ -273,3 +273,11 @@ deluser --remove-home pi
 
 #shellinabox configurator
 sed -i "s|4200|12320|" /etc/default/shellinabox
+
+echo >> /etc/securetty
+echo "# shellinabox" >> /etc/securetty
+declare -i COUNT=0
+while [ $COUNT -le 40 ]; do
+    echo "pts/$COUNT" >> /etc/securetty
+    ((COUNT=$COUNT+1))
+done
